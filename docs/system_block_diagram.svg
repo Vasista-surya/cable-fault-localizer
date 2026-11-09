@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="510" viewBox="0 0 1040 510" role="img" aria-labelledby="title description">
+  <title id="title">Illustrative system block diagram</title>
+  <desc id="description">Functional overview of the firmware-configured STM32, INA219, LCD, buttons, and LEDs. Not an electrical wiring schematic. Cable test topology is unspecified.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
+    </marker>
+    <style>
+      .box { fill: #f8fafc; stroke: #1e3a8a; stroke-width: 2; rx: 12; }
+      .io { fill: #eff6ff; stroke: #2563eb; stroke-width: 2; rx: 12; }
+      .text { font: 18px Arial, sans-serif; fill: #0f172a; }
+      .small { font: 14px Arial, sans-serif; fill: #334155; }
+      .link { stroke: #334155; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+      .bus { stroke: #2563eb; stroke-width: 3; fill: none; }
+    </style>
+  </defs>
+  <rect x="1" y="1" width="1038" height="508" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="520" y="38" text-anchor="middle" class="text" font-weight="bold">Illustrative functional block diagram — not an electrical schematic</text>
+
+  <rect class="box" x="385" y="170" width="270" height="145"/>
+  <text class="text" x="520" y="215" text-anchor="middle" font-weight="bold">STM32F401CCU6</text>
+  <text class="small" x="520" y="245" text-anchor="middle">CMSIS register-level firmware</text>
+  <text class="small" x="520" y="270" text-anchor="middle">Acquisition, filtering, state and UI</text>
+
+  <rect class="io" x="55" y="95" width="245" height="105"/>
+  <text class="text" x="177" y="132" text-anchor="middle" font-weight="bold">INA219 monitor</text>
+  <text class="small" x="177" y="159" text-anchor="middle">Shunt/current + bus registers</text>
+  <text class="small" x="177" y="181" text-anchor="middle">Address assumption: 0x40</text>
+
+  <rect class="io" x="740" y="95" width="245" height="105"/>
+  <text class="text" x="862" y="132" text-anchor="middle" font-weight="bold">16×2 LCD + PCF8574</text>
+  <text class="small" x="862" y="159" text-anchor="middle">Status display</text>
+  <text class="small" x="862" y="181" text-anchor="middle">Address assumption: 0x27</text>
+
+  <path class="bus" d="M300 146 H350 V215 H385"/>
+  <path class="bus" d="M655 215 H700 V146 H740"/>
+  <text class="small" x="350" y="132">I²C1 PB6/PB7</text>
+  <text class="small" x="665" y="132">I²C1 PB6/PB7</text>
+
+  <rect class="io" x="105" y="355" width="300" height="95"/>
+  <text class="text" x="255" y="390" text-anchor="middle" font-weight="bold">Three buttons</text>
+  <text class="small" x="255" y="420" text-anchor="middle">PA0 START · PA1 MEASURE · PA2 STOP</text>
+  <path class="link" d="M405 355 L455 315"/>
+
+  <rect class="io" x="635" y="355" width="300" height="95"/>
+  <text class="text" x="785" y="390" text-anchor="middle" font-weight="bold">Three status LEDs</text>
+  <text class="small" x="785" y="420" text-anchor="middle">PB8 green · PB9 yellow · PB10 red</text>
+  <path class="link" d="M635 355 L585 315"/>
+
+  <text class="small" x="520" y="480" text-anchor="middle" font-weight="bold">Cable-test electrical path/topology is not documented in supplied materials.</text>
+</svg>
